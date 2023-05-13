@@ -15,8 +15,8 @@ public:
     // }
         
     int ans = 0;
-        for(auto d: details){
-            int age = (d[11] - '0') * 10 + (d[12] - '0');
+        for(auto e: details){
+            int age = (e[11] - '0') * 10 + (e[12] - '0');
             if(age > 60) ans++;
         }
         return ans;
