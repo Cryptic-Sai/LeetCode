@@ -36,33 +36,34 @@ public:
         // }
         // return 0;
         
-//         int s = 1, e=nums.size()-1; 
+        int s = 1, e=nums.size()-1; 
         
-//         while(s<=e){
-//             int m = s + (e-s)/2;
-//             int cnt=0;
-//             for(auto i:nums){
-//                 if(i<=m){
-//                     cnt++;
-//                 }
-//             }                       // most optimized time 0(logn) space 0(1)
-//             if(cnt>m){
-//                 e = m-1;
-//             }
-//             else{
-//                 s = m+1;
-//             }
-//         }
-//          return s;
-        
-        int x =0;
-        sort(nums.begin() , nums.end());
-        for(int i =0; i<nums.size(); i++){
-            if(nums[i] == nums[i+1]){
-                x = nums[i];
-                break;
+        while(s<=e){
+            int m = s + (e-s)/2;
+            int cnt=0;
+            for(auto i:nums){
+                if(i<=m){
+                    cnt++;
+                }
+            }                       // most optimized time 0(logn) space 0(1)
+            if(cnt>m){
+                e = m-1;
+            }
+            else{
+                s = m+1;
             }
         }
-        return x;
+         return s;
+        
+    //     int x =0;
+    //     sort(nums.begin() , nums.end());
+    //     for(int i =0; i<nums.size(); i++){
+    //         if(nums[i] == nums[i+1]){
+    //             x = nums[i];
+    //             break;
+    //         }
+    //     }
+    //     return x;
+    // }
     }
 };
