@@ -5,7 +5,7 @@ public:
 //         int n = grid[0].size();
         
         int N = n+m-2;
-        int r= m-1;
+        int r = n-1;
         double res = 1;
         
         for(int i=1; i<=r; i++)
