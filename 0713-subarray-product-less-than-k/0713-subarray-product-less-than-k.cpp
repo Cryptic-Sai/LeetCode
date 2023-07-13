@@ -13,7 +13,7 @@ public:
                 pro /= nums[j];
                 j++;
             }
-            count = count +i-j+1;            
+            count += i-j+1;            
           }
         return count;
     }
