@@ -1,13 +1,13 @@
 class Solution {
 public: 
-    int getlength(ListNode* head){    
-        int len=0;
-        while(head != NULL){
-            len ++;
-            head = head -> next;
-        }
-        return len;
-    }
+    // int getlength(ListNode* head){    
+    //     int len=0;
+    //     while(head != NULL){
+    //         len ++;
+    //         head = head -> next;
+    //     }
+    //     return len;
+    // }
     ListNode* getMiddle(ListNode* head){
         if(head == NULL || head ->next == NULL){
             return head;
