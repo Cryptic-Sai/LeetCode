@@ -1,20 +1,6 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-
-
 class Solution {
-public:
-    
-    int getlength(ListNode* head){
-        
+public: 
+    int getlength(ListNode* head){    
         int len=0;
         while(head != NULL){
             len ++;
@@ -22,15 +8,14 @@ public:
         }
         return len;
     }
-    
     ListNode* getMiddle(ListNode* head){
         if(head == NULL || head ->next == NULL){
             return head;
         }
-//         Not Nexesary but we can put condition for two elemets in linked list
-        if(head -> next -> next == NULL){
-            return head -> next;
-        }
+// //         Not Nexesary but we can put condition for two elemets in linked list
+//         if(head -> next -> next == NULL){
+//             return head -> next;
+//         }
         ListNode* fast = head ->next;
         ListNode* slow = head;
         
@@ -42,10 +27,8 @@ public:
             slow = slow -> next;
         }
         return slow;
-    }
-    
+    } 
     ListNode* middleNode(ListNode* head) {
-        
         return getMiddle(head);
 //         int len = getlength(head);
 //         int ans = (len)/2;
