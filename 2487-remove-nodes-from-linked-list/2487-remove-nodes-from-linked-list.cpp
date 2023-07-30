@@ -43,9 +43,23 @@ public:
     
 // };
 
+//     ListNode* removeNodes(ListNode* head) {
+//         if (!head) return NULL;
+//         head->next = removeNodes(head->next);
+//         return head->next && head->val < head->next->val ?  head->next : head;
+//     }
+// };
+    
     ListNode* removeNodes(ListNode* head) {
-        if (!head) return NULL;
-        head->next = removeNodes(head->next);
-        return head->next && head->val < head->next->val ?  head->next : head;
+        if(head == NULL || head->next == NULL) {
+            return head;
+        }
+        ListNode* nextN = removeNodes(head->next);
+        if(nextN->val > head->val) {
+            return nextN;
+        }
+        head->next = nextN;
+        return head;
     }
+    
 };
