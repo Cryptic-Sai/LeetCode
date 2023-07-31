@@ -22,15 +22,15 @@ public:
             head = head -> next;
             return head;
         }
-        int count =1;
+        int cnt =1;
         ListNode* temp = head;
         while( temp != NULL){
-            if (count != (len-n)){
+            if (cnt != (len-n)){
                 temp = temp -> next;
             }else{
                 temp -> next = temp -> next -> next;
             }
-            count ++;
+            cnt ++;
         }
         return head;
         
