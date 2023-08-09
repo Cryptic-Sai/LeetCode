@@ -28,9 +28,9 @@ public:
     // }
     
     ListNode* insertGreatestCommonDivisors(ListNode* head) {
-//         if(head == NULL || head -> next == NULL){
-//             return head;;
-//         }
+        if(head == NULL || head -> next == NULL){
+            return head;;
+        }
         
         ListNode* temp = head;
         while(temp -> next){
