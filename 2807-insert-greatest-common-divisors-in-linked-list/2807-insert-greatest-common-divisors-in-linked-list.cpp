@@ -34,8 +34,9 @@ public:
         
         ListNode* temp = head;
         while(temp -> next){
-            ListNode* ans = new ListNode(__gcd(temp -> val , temp -> next -> val), temp -> next);
             ListNode* prev = temp -> next;
+            ListNode* ans = new ListNode(__gcd(temp -> val , temp -> next -> val), temp -> next);
+            
             temp -> next = ans;
             ans -> next = prev;
             temp = prev;
@@ -44,24 +45,3 @@ public:
         return head;
     }
 };
-
-// ListNode* insertGreatestCommonDivisors(ListNode* head) {
-//         if(head==NULL || head->next==NULL) return head;
-        
-//         ListNode *p = head;
-//         while(p->next){
-//             ListNode* node = new ListNode(gcd(p->val, p->next->val));
-            
-// 			// storing originally next pointer in list
-//             ListNode *on = p->next; 
-			
-// 			// inserting node in between
-//             p->next = node; 
-//             node->next = on;
-			
-// 			// moving to next node in original list
-//             p=on;
-//         }
-        
-//         return head;
-//     }
