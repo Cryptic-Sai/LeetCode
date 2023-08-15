@@ -18,19 +18,23 @@ public:
         int len = 1;
         ListNode* curr = head;
         ListNode* temp = head;
-        // int count = 0;
+        
         while(curr -> next ){
             curr = curr -> next;
             len ++;
         }
+//         After finding the length this last node will be pointing towards null
         curr -> next = head;
-        if(k %= len) 
-        {
-            for(auto i=0; i<len-k; i++) curr = curr->next;
-        }
-        temp = curr->next; 
-        curr->next = NULL;
-        return temp;
+        k = k% len;
+        k = len - k;
+        
+        while(k--) curr = curr -> next;
+        
+//         Since curr is standing at (len - k)th node so point it towards head;
+        head = curr -> next;
+        curr -> next = NULL ;
+        
+        return head;
     }
     
 };
