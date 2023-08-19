@@ -10,34 +10,56 @@
  */
 class Solution {
 public:
-    int pairSum(ListNode* head) {
-//         if(head == NULL || head -> next == NULL){
-//             return NULL:
-//         }
-//         ListNode* curr = head;
-//         LsttNode* temp = head;
-//         int count =0;
+    
+    ListNode* reverse(ListNode* head){
+        ListNode* prev = NULL;
+        ListNode* curr = head;
+        ListNode* forward = NULL;
         
-//         while(curr != NULL){
-//               count ++;
-//                 curr = curr -> next;
-//         }
-//         int sum = curr -> val + (count -1) -> val;
-//         while(curr != NULL){ 
-            
-//         }
-//         
-//         By doing it in vector
-        vector<int> v;
-        ListNode* temp = head;
-        while(temp != NULL){
-            v.push_back(temp-> val);
-            temp = temp -> next;
+        while(curr != NULL){
+            forward = curr -> next ;
+            curr -> next = prev;
+            prev = curr;
+            curr = forward;
         }
-            int sum =0;
-            for(int i=0; i<v.size()/2; i++){
-                sum = max(sum, v[i] + v[v.size()-1 -i]);
-            }
-            return sum;
+        return prev;
+    }
+    int pairSum(ListNode* head) {
+         
+// //         By doing it in vector
+//         vector<int> v;
+//         ListNode* temp = head;
+//         while(temp != NULL){
+//             v.push_back(temp-> val);
+//             temp = temp -> next;
+//         }
+//             int sum =0;
+//             for(int i=0; i<v.size()/2; i++){
+//                 sum = max(sum, v[i] + v[v.size()-1 -i]);
+//             }
+//             return sum;
+        
+//         Optimsed Approach
+        
+        ListNode* fast = head -> next;
+        ListNode* slow = head;
+        
+        while(fast != NULL && fast -> next != NULL){
+            // if(fast != NULL)
+            slow = slow -> next;
+                fast = fast -> next -> next;
+        }
+        ListNode* newhead = slow -> next;
+        slow -> next = NULL;
+        
+        newhead = reverse(newhead);
+        
+        int ans = 0;
+        while(head && newhead){
+            ans = max(ans,(head-> val)+ (newhead  -> val));
+            head = head -> next;
+            newhead = newhead -> next;
+        }
+        return ans;
         }
 };
