@@ -46,8 +46,9 @@ public:
         
         while(fast != NULL && fast -> next != NULL){
             // if(fast != NULL)
-            slow = slow -> next;
+            
                 fast = fast -> next -> next;
+            slow = slow -> next;
         }
         ListNode* newhead = slow -> next;
         slow -> next = NULL;
