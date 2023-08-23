@@ -1,6 +1,19 @@
 class Solution {
 public:
-     int minimizeMax(vector<int>& nums, int p) {
+         
+     int newFun(vector<int>& nums, int diff , int p){
+        int i=1; 
+        int count =0;
+        while(i<nums.size()){
+        if(nums[i]  - nums[i-1] <= diff){
+            i++;
+            count ++;
+        }
+        i++;
+     } 
+        return count;
+     }
+    int minimizeMax(vector<int>& nums, int p) {
         sort(nums.begin() , nums.end());
         vector<vector<int>> ans;
         int s=0;
@@ -14,17 +27,5 @@ public:
             }
         }
         return s;
-     }    
-     int newFun(vector<int>& nums, int diff , int p){
-        int i=1; 
-        int count =0;
-        while(i<nums.size()){
-        if(nums[i]  - nums[i-1] <= diff){
-            i++;
-            count ++;
-        }
-        i++;
-     } 
-        return count;
-}
+     }
 };
